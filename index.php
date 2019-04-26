@@ -2,21 +2,32 @@
 
 require 'inc/head.php';
 
+if (!empty($_POST)) {
+    $_SESSION['loginname'] = $_POST['loginname'];
+}
+
+if (empty($_SESSION['loginname'])) {
+    header('location: login.php');
+}
+
+
+//var_dump($_SESSION);
+//var_dump($_POST);
 ?>
 
 <?php
 
-if (!empty($_GET['add_to_cart'])) {
+if (isset($_GET['add_to_cart'])) {
 
     switch ($_GET["add_to_cart"]) {
 
         case "46":
 
-            if (empty($_COOKIE['panier']['pecanNuts'])) {
+            if (isset($_COOKIE['panier']['pecanNuts'])) {
 
                 setCookie("panier[pecanNuts]", 1, strtotime("+1 days"));
 
-                header("location: login.php");
+                header("location: index.php");
 
                 break;
 
@@ -30,7 +41,7 @@ if (!empty($_GET['add_to_cart'])) {
 
         case "36":
 
-            if (empty($_COOKIE['panier']['chocolateChips'])) {
+            if (isset($_COOKIE['panier']['chocolateChips'])) {
 
                 setCookie("panier[chocolateChips]", 1, strtotime("+1 days"));
 
@@ -48,7 +59,7 @@ if (!empty($_GET['add_to_cart'])) {
 
         case "58":
 
-            if (empty($_COOKIE['panier']['chocolateCookie'])) {
+            if (isset($_COOKIE['panier']['chocolateCookie'])) {
 
                 setCookie("panier[chocolateCookie]", 1, strtotime("+1 days"));
 
@@ -64,7 +75,7 @@ if (!empty($_GET['add_to_cart'])) {
 
         case "32":
 
-            if (empty($_COOKIE['panier']['mmsCookies'])) {
+            if (isset($_COOKIE['panier']['mmsCookies'])) {
 
                 setCookie("panier[mmsCookies]", 1, strtotime("+1 days"));
 
@@ -94,7 +105,7 @@ if (!empty($_GET['add_to_cart'])) {
                     <h3>Pecan nuts</h3>
                     <h4><?= $_COOKIE['panier']['pecanNuts'] ?></h4>
                     <p>Cooked by Penny !</p>
-                    <form action="" method="GET">
+                   <form action="" method="GET">
                         <input type="hidden" name="add_to_cart" value="46"/>
                         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"
                                                                             aria-hidden="true"></span>Ajouter au Panier

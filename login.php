@@ -3,13 +3,13 @@
 require 'inc/head.php';
 
 
-if (!empty($_POST)) {
-    $_SESSION['loginname'] = $_POST['loginname'];
+if (!empty($_SESSION['loginname'])) {
+    header('Location: login.php');
+
 }
 
-if (!empty($_SESSION['loginname'])) {
-    header('location: index.php');
-}
+
+
 
 
 ?>
@@ -21,7 +21,7 @@ if (!empty($_SESSION['loginname'])) {
                     <strong> Sign in to continue</strong>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST">
+                    <form role="form"  action="index.php" method="POST">
                         <fieldset>
                             <div class="row">
                                 <div class="center-block">

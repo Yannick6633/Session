@@ -1,5 +1,9 @@
 <?php session_start(); ?>
-
+<?php
+if (!empty($_POST['loginname'])) {
+$_SESSION['loginname'] = $_POST['loginname'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +68,6 @@
         </div>
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello! <?= $_SESSION['loginname']; ?></strong>
+        <strong>Hello <?= $_SESSION['loginname']; ?> !<br /></strong>
     </div>
 </header>
