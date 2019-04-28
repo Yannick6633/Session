@@ -1,10 +1,6 @@
-<?php session_start(); ?>
 <?php
-if (!empty($_POST['loginname'])) {
-$_SESSION['loginname'] = $_POST['loginname'];
-}
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +9,16 @@ $_SESSION['loginname'] = $_POST['loginname'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Cookie Factory</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/styles.css" />
 </head>
 <body>
 <header>
-
+    <!-- MENU ENTETE -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,13 +27,13 @@ $_SESSION['loginname'] = $_POST['loginname'];
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/" >
                     <img class="pull-left" src="assets/img/cookie_funny_clipart.png" alt="The Cookies Factory logo">
                     <h1>The Cookies Factory</h1>
                 </a>
             </div>
 
-
+            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
 
@@ -46,28 +41,23 @@ $_SESSION['loginname'] = $_POST['loginname'];
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
                     <li>
-                        <a href="/logout.php" class="btn btn-success navbar-btn">
-                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                            Logout
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/suppcart.php" class="btn btn-danger navbar-btn">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            Cookie
-                        </a>
-                    </li>
-                    <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                             Cart
                         </a>
                     </li>
+                    <li>
+                        <a href="/logout.php" class="btn btn-success navbar-btn">
+                            <span  aria-hidden="true"></span>
+                            Logout
+                        </a>
+                    </li>
                 </ul>
-            </div>
-        </div>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello <?= $_SESSION['loginname']; ?> !<br /></strong>
+        <!-- si la session login existe alors on l'affiche sinon on affiche wilder -->
+        <strong>Hello <?= $_SESSION["login"] ?? "Wilder" ?> !</strong>
     </div>
 </header>

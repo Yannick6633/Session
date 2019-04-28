@@ -1,8 +1,9 @@
 <?php
-
 session_start();
+session_unset();
 session_destroy();
-header('Location: login.php');
-
-
-
+setcookie("panier[pecanNuts]","", time()-3600);
+setcookie("panier[chocolateChips]","", time()-3600);
+setcookie("panier[chocolateCookie]","", time()-3600);
+setcookie("panier[mmsCookies]","", time()-3600);
+header("Location: login.php");
