@@ -1,13 +1,15 @@
-sélectionnés# Template pour : Quêtes  PHP Cookies & Sessions
+Cookies et sessions
 
-Ce Template html va te permettre de réaliser ta quête sur la gestion des cookies et des sessions avec PHP.
 
-Sont inclus :
+Quêtes réalisées lors de ma formation à la Wild Code School Février 2019
 
-* la page de connexion,
-* la page des produits disponibles a l'achat,
-* la page panier, affichant à partir des cookies les produits sélectionnés par l'utilisateur.
 
-Tu n'as que du script PHP à fournir !
+Critères de validation
 
-Après, si l'envie te prend de refondre le CSS, nous ne ferons rien pour t'en empêcher !
+    On peut s'identifier de manière simple avec seulement un nom d'utilisateur,
+    Le nom d'utilisateur donné lors de l'identification est repris sur toutes les pages depuis les sessions,
+    Mon panier est stocké dans mes variables de sessions et est affiché sur la page "Panier".
+    Il est possible d’accéder uniquement aux pages login.php et index.php tant que l’utilisateur n’est pas connecté.
+    La page login.php devient inaccessible une fois connecté, l'utilisateur est redirigé vers la page index.php s'il tente d'y accéder.
+    L'utilisateur peut également se délogger à l'aide d'un bouton "déconnexion".
+
